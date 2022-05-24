@@ -1,11 +1,14 @@
 Package: hsData
 Type: Package
-Title: What the Package Does (Title Case)
+Title: 고등학교 실용통계 데이터셋
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Kwangchun Lee
+Maintainer: Kwangchun Lee <victor@r2bit.com>
+Description: 통계청 산하 통계교육원이 저작권을 보유하고 있는 고등학교 실용통계
+    데이터셋
+License: GPL v3
 Encoding: UTF-8
 LazyData: true
+Depends: 
+    R (>= 2.10)
+RoxygenNote: 7.1.2

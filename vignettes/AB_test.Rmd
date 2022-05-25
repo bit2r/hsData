@@ -1,0 +1,88 @@
+---
+title: "01 들어가며"
+bibliography: ../book.bib
+biblio-style: apalike
+link-citations: yes
+vignette: >
+  %\VignetteIndexEntry{01 들어가며}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+pkgdown:
+  as_is: true
+editor_options: 
+  chunk_output_type: console
+output:
+  minidown::mini_document:
+    framework: sakura
+    theme: default
+    toc: true
+    toc_float: true
+    toc_highlight: true
+    code_folding: "hide"
+    results_folding: "show"
+    tabset: true
+    code_download: true
+    math: "katex"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = TRUE,
+  message = FALSE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(hsData)
+```
+
+# 수학 선호도: `math_pref`
+
+```{r math-preference-data-print}
+knitr::kable(
+  math_pref, 
+  booktabs = TRUE,
+  align = c('r', 'r', 'r', 'r'),
+  caption = '실용통계  58쪽 수학 선호도'
+)
+```
+
+
+## 원그래프와 띠그래프
+
+```{r math-pref-bar}
+library(tidyverse)
+extrafont::loadfonts()
+
+math_pref %>% 
+  ggplot(aes(y=성별)) +
+    geom_bar( width = 0.3) +
+    coord_flip() + 
+    theme_bw(base_family = "AppleGothic") +
+    labs(x="빈도",
+         title = "수학 선호도",
+         subtitle = "참여인원 성별 빈도수")
+```
+
+
+```{r math-pref-pie}
+library(tidyverse)
+extrafont::loadfonts()
+
+math_pref %>% 
+  count(성별, name = "인원수") %>% 
+  ggplot(aes(x="", y=인원수, fill = 성별)) +
+    geom_bar( width = 0.3,  stat = "identity") +
+    coord_polar("y", start = 0) + 
+    theme_bw(base_family = "AppleGothic") +
+    scale_fill_manual(values=c("#999999", "#E69F00")) +
+    geom_text(aes(y = 인원수/2 + c(cumsum(인원수)[-length(인원수)], 0), 
+            label = glue::glue("{인원수}명\n{scales::percent(인원수/20)}") ), size=5,
+            family = "AppleGothic") +
+    labs(x="",
+         y = "",
+         title = "수학 선호도",
+         subtitle = "참여인원 성별 비율") 
+```

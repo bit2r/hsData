@@ -1,4 +1,6 @@
-# hsData
+# icons <img src="pkgdown/favicon/apple-touch-icon-180x180.png" align="right" height="138"/>
+
+# `hsData`
 
 [![Travis-CI Build Status](https://travis-ci.org/bit2r/hsData.svg?branch=master)](https://travis-ci.org/bit2r/hsData)
 
@@ -6,13 +8,11 @@
 
 ## 설치
 
-```R
+``` r
 # GitHub 개발버전
 devtools::install_github("bit2r/hsData")
 ```
 
 ## 행동강령 (Code of Conduct)
 
-`hsData`프로젝트는 [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html)을 
-따르고 있습니다. 따라서, `hsData`프로젝트 기여함은 해당 조항을 준수하는데 동의하는 것입니다.
-
+`hsData`프로젝트는 [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html)을 따르고 있습니다. 따라서, `hsData`프로젝트 기여함은 해당 조항을 준수하는데 동의하는 것입니다.

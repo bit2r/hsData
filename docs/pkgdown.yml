@@ -1,7 +1,7 @@
-pandoc: '2.18'
+pandoc: 2.17.1.1
 pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
-  AB_test: AB_test.html
-last_built: 2022-05-25T07:43Z
+  수학선호도: 수학선호도.html
+last_built: 2022-05-25T09:03Z
 

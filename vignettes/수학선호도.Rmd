@@ -1,10 +1,10 @@
 ---
-title: "01 들어가며"
+title: "수학 선호도"
 bibliography: ../book.bib
 biblio-style: apalike
 link-citations: yes
 vignette: >
-  %\VignetteIndexEntry{01 들어가며}
+  %\VignetteIndexEntry{수학선호도}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 pkgdown:

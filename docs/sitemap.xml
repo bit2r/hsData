@@ -10,13 +10,13 @@
     <loc>/articles/index.html</loc>
   </url>
   <url>
+    <loc>/articles/수학선호도.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
     <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/LED.html</loc>
   </url>
   <url>
     <loc>/reference/battery.html</loc>
@@ -35,6 +35,9 @@
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/LED.html</loc>
   </url>
   <url>
     <loc>/reference/lengths.html</loc>

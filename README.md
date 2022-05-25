@@ -1,4 +1,4 @@
-# icons <img src="pkgdown/favicon/apple-touch-icon-180x180.png" align="right" height="138"/>
+<img src="man/figures/apple-touch-icon-120x120.png" align="right" height="138"/>
 
 # `hsData`
 

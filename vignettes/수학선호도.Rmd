@@ -54,13 +54,17 @@ knitr::kable(
 
 ```{r math-pref-bar}
 library(tidyverse)
-extrafont::loadfonts()
+library(showtext)
+
+font_add_google('Noto Sans KR', 'noto_sans_kr')
+
+showtext_auto()
 
 math_pref %>% 
   ggplot(aes(y=성별)) +
     geom_bar( width = 0.3) +
     coord_flip() + 
-    theme_bw(base_family = "AppleGothic") +
+    theme_bw(base_family = "noto_sans_kr") +
     labs(x="빈도",
          title = "수학 선호도",
          subtitle = "참여인원 성별 빈도수")
@@ -68,19 +72,16 @@ math_pref %>%
 
 
 ```{r math-pref-pie}
-library(tidyverse)
-extrafont::loadfonts()
-
 math_pref %>% 
   count(성별, name = "인원수") %>% 
   ggplot(aes(x="", y=인원수, fill = 성별)) +
     geom_bar( width = 0.3,  stat = "identity") +
     coord_polar("y", start = 0) + 
-    theme_bw(base_family = "AppleGothic") +
+    theme_bw(base_family = "noto_sans_kr") +
     scale_fill_manual(values=c("#999999", "#E69F00")) +
     geom_text(aes(y = 인원수/2 + c(cumsum(인원수)[-length(인원수)], 0), 
             label = glue::glue("{인원수}명\n{scales::percent(인원수/20)}") ), size=5,
-            family = "AppleGothic") +
+            family = "noto_sans_kr") +
     labs(x="",
          y = "",
          title = "수학 선호도",

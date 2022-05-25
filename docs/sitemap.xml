@@ -10,9 +10,48 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/battery.html</loc>
+  </url>
+  <url>
+    <loc>/reference/blood_book.html</loc>
+  </url>
+  <url>
+    <loc>/reference/cars.html</loc>
+  </url>
+  <url>
+    <loc>/reference/grades.html</loc>
+  </url>
+  <url>
+    <loc>/reference/homerun.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
+    <loc>/reference/LED.html</loc>
+  </url>
+  <url>
+    <loc>/reference/lengths.html</loc>
+  </url>
+  <url>
     <loc>/reference/math_pref.html</loc>
+  </url>
+  <url>
+    <loc>/reference/measures.html</loc>
+  </url>
+  <url>
+    <loc>/reference/noodle.html</loc>
+  </url>
+  <url>
+    <loc>/reference/pullup.html</loc>
+  </url>
+  <url>
+    <loc>/reference/reading.html</loc>
+  </url>
+  <url>
+    <loc>/reference/scores.html</loc>
+  </url>
+  <url>
+    <loc>/reference/shoes.html</loc>
   </url>
 </urlset>

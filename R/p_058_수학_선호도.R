@@ -15,7 +15,7 @@ rawData <- readxl::read_excel("inst/extdata/p_058_수학_선호도.xlsx") %>%
   janitor::clean_names(ascii = FALSE) %>%
   filter(성별 != "NA")
 
-datapasta::dpasta(rawData)
+# datapasta::dpasta(rawData)
 
 # 3. 데이터 -------------
 

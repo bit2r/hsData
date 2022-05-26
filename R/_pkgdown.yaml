@@ -1,0 +1,6 @@
+
+template:
+  params:
+    ganalytics: UA-229551680-1
+  includes:
+    in_header: google_analytics.html

@@ -19,6 +19,9 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/LED.html</loc>
+  </url>
+  <url>
     <loc>/reference/battery.html</loc>
   </url>
   <url>
@@ -35,9 +38,6 @@
   </url>
   <url>
     <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/LED.html</loc>
   </url>
   <url>
     <loc>/reference/lengths.html</loc>

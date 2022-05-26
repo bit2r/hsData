@@ -76,11 +76,13 @@ battery %>%
 battery_skim <- battery %>% 
   group_by(회사명) %>% 
   skimr::skim() %>% 
-  skimr::yank("numeric")
+  skimr::yank("numeric") %>% 
+  select(-n_missing, -complete_rate)
   
 knitr::kable(
   battery_skim, 
   booktabs = TRUE,
+  align = c(rep('c', times = ncol(battery_skim))),
   caption = '실용통계  68쪽 두 회사 건전지 수명'
 )
 ```

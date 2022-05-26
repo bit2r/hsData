@@ -2,7 +2,8 @@ pandoc: '2.18'
 pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
+  차량정보: 차량정보.html
   건전지_수명: 건전지_수명.html
   수학선호도: 수학선호도.html
-last_built: 2022-05-26T02:31Z
+last_built: 2022-05-26T03:55Z
 

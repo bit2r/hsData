@@ -1,7 +1,7 @@
 ---
 title: "국내출시 차량정보"
 vignette: >
-  %\VignetteIndexEntry{차량정보}
+  %\VignetteIndexEntry{cars}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 pkgdown:

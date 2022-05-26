@@ -1,7 +1,7 @@
 ---
 title: "건전지 수명"
 vignette: >
-  %\VignetteIndexEntry{건전지_수명}
+  %\VignetteIndexEntry{battery}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 pkgdown:

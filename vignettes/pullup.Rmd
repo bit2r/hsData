@@ -1,7 +1,7 @@
 ---
 title: "턱걸이"
 vignette: >
-  %\VignetteIndexEntry{턱걸이}
+  %\VignetteIndexEntry{pullup}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 pkgdown:

@@ -1,7 +1,7 @@
 Package: hsData
 Type: Package
 Title: 고등학교 실용통계 데이터셋
-Version: 0.2.0
+Version: 0.3.0
 Date: 2022-05-27
 Authors@R: c(
   person("Kwangchun", "lee",, "kwangchun.lee.7@gmail.com", role = c("aut", "cre")),

@@ -113,5 +113,6 @@ cars_lm %>%
 
 연비와 중량간 수식으로 표현하면 다음과 같다.
 
-`r equatiomatic::extract_eq(cars_lm, wrap = TRUE, use_coefs = TRUE, coef_digits=5)`
+`r equatiomatic::extract_eq(cars_lm, wrap = TRUE, use_coefs = TRUE, coef_digits=5)` 
+
 

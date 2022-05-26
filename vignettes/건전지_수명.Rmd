@@ -1,0 +1,87 @@
+---
+title: "건전지 수명"
+vignette: >
+  %\VignetteIndexEntry{건전지_수명}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+pkgdown:
+  as_is: true
+editor_options: 
+  chunk_output_type: console
+output:
+  minidown::mini_document:
+    framework: sakura
+    theme: default
+    toc: true
+    toc_float: true
+    toc_highlight: true
+    code_folding: "hide"
+    results_folding: "show"
+    tabset: true
+    code_download: true
+    math: "katex"  
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = TRUE,
+  message = FALSE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(hsData)
+source(glue::glue("{here::here()}/vignettes/_common.R"), encoding="UTF-8")
+```
+
+# 건전지 수명 데이터: `battery`
+
+두 회사의 건전지 수명을 데이터를 통해 비교하여 객관적으로 우수한 건전지를 제조하는 
+회사를 식별해 낸다.
+
+```{r batteries-dataset}
+knitr::kable(
+  battery, 
+  booktabs = TRUE,
+  align = c('c', 'c'),
+  caption = '실용통계  68쪽 두 회사 건전지 수명'
+)
+```
+
+
+# 시각화 - 상자그림
+
+두 회사의 건전지 수명을 상자그림을 통해 시각적으로 비교할 수 있다.
+
+```{r batteries-boxplot}
+
+battery %>% 
+  ggplot(aes( x = 회사명, y = 건전지_수명)) +
+    geom_boxplot() +
+    theme_bw() +
+    labs(title = "두 회사 건전지 수명 비교",
+         subtitle = "상자그림(Boxplot), 단위:분",
+         x = "회사명",
+         y = "건전지 수명",
+         caption = "출처: 통계개발원 실용통계, P68")
+```
+
+# 기술통계량
+
+두 회사의 건전지 수명을 다양한 통계량을 통해 비교할 수 있다.
+
+```{r batteries-skim}
+battery_skim <- battery %>% 
+  group_by(회사명) %>% 
+  skimr::skim() %>% 
+  skimr::yank("numeric")
+  
+knitr::kable(
+  battery_skim, 
+  booktabs = TRUE,
+  caption = '실용통계  68쪽 두 회사 건전지 수명'
+)
+```
+

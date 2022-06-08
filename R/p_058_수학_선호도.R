@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/p_058_수학_선호도.xlsx") %>%
@@ -49,12 +51,12 @@ math_pref <- math_pref %>%
 
 # 4. 내보내기 ---------------------
 
-math_pref <- krvote::clean_varnames(math_pref)
+math_pref <- clean_varnames(math_pref)
 
 write_csv(math_pref, "data-raw/math_preference.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(math_pref)
+# sinew::makeOxygen(math_pref)
 
 usethis::use_data(math_pref, overwrite = TRUE, compress = 'xz')

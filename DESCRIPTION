@@ -1,7 +1,7 @@
 Package: hsData
 Type: Package
 Title: 고등학교 실용통계 데이터셋
-Version: 0.1.0
+Version: 0.7.0
 Author: Kwangchun Lee
 Maintainer: Kwangchun Lee <victor@r2bit.com>
 Description: 통계청 산하 통계교육원이 저작권을 보유하고 있는 고등학교 실용통계

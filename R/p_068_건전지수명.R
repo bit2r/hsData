@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/p_068_건전지수명.xlsx") %>%
@@ -76,12 +78,12 @@ battery <- battery %>%
 
 # 4. 내보내기 ---------------------
 
-blood_book <- krvote::clean_varnames(blood_book)
+blood_book <- clean_varnames(blood_book)
 
 write_csv(battery, "data-raw/battery.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(battery)
+# sinew::makeOxygen(battery)
 
 usethis::use_data(battery, overwrite = TRUE, compress = 'xz')

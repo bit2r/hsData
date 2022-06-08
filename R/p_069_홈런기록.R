@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/p_069_홈런기록.xlsx") %>%
@@ -66,12 +68,12 @@ homerun <- homerun %>%
 
 # 4. 내보내기 ---------------------
 
-homerun <- krvote::clean_varnames(homerun)
+homerun <- clean_varnames(homerun)
 
 write_csv(homerun, "data-raw/homerun.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(homerun)
+# sinew::makeOxygen(homerun)
 
 usethis::use_data(homerun, overwrite = TRUE, compress = 'xz')

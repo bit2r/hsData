@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/p_059_혈액형과_책의수.xlsx") %>%
@@ -50,12 +52,12 @@ blood_book <- blood_book %>%
 
 # 4. 내보내기 ---------------------
 
-blood_book <- krvote::clean_varnames(blood_book)
+blood_book <- clean_varnames(blood_book)
 
 write_csv(blood_book, "data-raw/blood_book.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(blood_book)
+# sinew::makeOxygen(blood_book)
 
 usethis::use_data(blood_book, overwrite = TRUE, compress = 'xz')

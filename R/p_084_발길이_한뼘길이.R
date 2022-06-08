@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/p_084_발길이_한뼘길이.xlsx") %>%
@@ -51,13 +53,13 @@ lengths <- lengths %>%
 
 # 4. 내보내기 ---------------------
 
-lengths <- krvote::clean_varnames(lengths)
+lengths <- clean_varnames(lengths)
 
 write_csv(lengths, "data-raw/lengths.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(lengths)
+# sinew::makeOxygen(lengths)
 
 usethis::use_data(lengths, overwrite = TRUE, compress = 'xz')
 

@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/p_078_차량_중량과연비.xlsx") %>%
@@ -62,13 +64,13 @@ cars <- cars %>%
 
 # 4. 내보내기 ---------------------
 
-cars <- krvote::clean_varnames(cars)
+cars <- clean_varnames(cars)
 
 write_csv(cars, "data-raw/cars.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(cars)
+# sinew::makeOxygen(cars)
 
 usethis::use_data(cars, overwrite = TRUE, compress = 'xz')
 

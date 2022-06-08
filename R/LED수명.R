@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/LED수명.xls") %>%
@@ -79,13 +81,13 @@ LED <- LED %>%
 
 # 4. 내보내기 ---------------------
 
-LED <- krvote::clean_varnames(LED)
+LED <- clean_varnames(LED)
 
 write_csv(LED, "data-raw/LED.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(LED)
+# sinew::makeOxygen(LED)
 
 usethis::use_data(LED, overwrite = TRUE, compress = 'xz')
 

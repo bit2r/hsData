@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/p_084_라면영양성분.xlsx") %>%
@@ -50,13 +52,13 @@ noodle <- noodle %>%
 
 # 4. 내보내기 ---------------------
 
-noodle <- krvote::clean_varnames(noodle)
+noodle <- clean_varnames(noodle)
 
 write_csv(noodle, "data-raw/noodle.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(noodle)
+# sinew::makeOxygen(noodle)
 
 usethis::use_data(noodle, overwrite = TRUE, compress = 'xz')
 

@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/p_077_독서_게임시간.xlsx") %>%
@@ -52,13 +54,13 @@ reading <- reading %>%
 
 # 4. 내보내기 ---------------------
 
-reading <- krvote::clean_varnames(reading)
+reading <- clean_varnames(reading)
 
 write_csv(reading, "data-raw/reading.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(reading)
+# sinew::makeOxygen(reading)
 
 usethis::use_data(reading, overwrite = TRUE, compress = 'xz')
 

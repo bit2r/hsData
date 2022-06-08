@@ -9,6 +9,8 @@ library(tidyverse)
 library(readxl)
 library(usethis)
 
+source("R/util.R")
+
 # 2. 데이터 전처리 -------------
 
 rawData <- readxl::read_excel("inst/extdata/p_073_턱걸이횟수.xlsx") %>%
@@ -53,12 +55,12 @@ pullup <- pullup %>%
 
 # 4. 내보내기 ---------------------
 
-homerun <- krvote::clean_varnames(pullup)
+homerun <- clean_varnames(pullup)
 
 write_csv(pullup, "data-raw/pullup.csv")
 
 # 5. 문서화 -----------------------
 
-sinew::makeOxygen(pullup)
+# sinew::makeOxygen(pullup)
 
 usethis::use_data(pullup, overwrite = TRUE, compress = 'xz')

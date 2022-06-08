@@ -1,0 +1,85 @@
+---
+title: "턱걸이"
+vignette: >
+  %\VignetteIndexEntry{pullup}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+pkgdown:
+  as_is: true
+editor_options: 
+  chunk_output_type: console
+output:
+  minidown::mini_document:
+    framework: sakura
+    theme: default
+    toc: true
+    toc_float: true
+    toc_highlight: true
+    code_folding: "hide"
+    results_folding: "show"
+    tabset: true
+    code_download: true
+    math: "katex"  
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = TRUE,
+  message = FALSE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(hsData)
+source(glue::glue("{here::here()}/vignettes/_common.R"), encoding="UTF-8")
+```
+
+# 턱걸이 데이터: `pullup`
+
+실용통계 73 페이지 수록된 턱걸이 횟수 데이터를 살펴보자.
+
+```{r pullup-dataset}
+knitr::kable(
+  pullup, 
+  booktabs = TRUE,
+  align = c('c'),
+  caption = '실용통계 73쪽 고등학교 남학생 24명 턱걸이 횟수'
+)
+```
+
+
+# 시각화 - 상자그림
+
+고등학교 남학생 24명 턱걸이 횟수 분포를 시각화한다.
+
+```{r pullup-boxplot}
+pullup %>% 
+  ggplot(aes( y = 턱걸이_횟수)) +
+    geom_boxplot() +
+    theme_bw() +
+    labs(title = "고등학생 24명 턱컬이 횟수",
+         subtitle = "상자그림(Boxplot), 단위:횟수",
+         y = "턱걸이 횟수",
+         caption = "출처: 통계개발원 실용통계, P73")
+```
+
+# 통계량
+
+턱걸이 횟수 주요 통계량을 살펴보자.
+
+```{r pullup-skim}
+pullup_skim <- pullup %>% 
+  skimr::skim() %>% 
+  skimr::yank("numeric") %>% 
+  select(-n_missing, -complete_rate)
+  
+knitr::kable(
+  pullup_skim, 
+  booktabs = TRUE,
+  align = c(rep('c', times=9)),
+  caption = '실용통계  73쪽 고등학생 24명 턱걸이 요약 통계량'
+)
+```
+

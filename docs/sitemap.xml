@@ -7,7 +7,28 @@
     <loc>/articles/AB_test.html</loc>
   </url>
   <url>
+    <loc>/articles/battery.html</loc>
+  </url>
+  <url>
+    <loc>/articles/cars.html</loc>
+  </url>
+  <url>
     <loc>/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>/articles/math_pref.html</loc>
+  </url>
+  <url>
+    <loc>/articles/pullup.html</loc>
+  </url>
+  <url>
+    <loc>/articles/차량정보.html</loc>
+  </url>
+  <url>
+    <loc>/articles/턱걸이.html</loc>
+  </url>
+  <url>
+    <loc>/articles/건전지_수명.html</loc>
   </url>
   <url>
     <loc>/articles/수학선호도.html</loc>
@@ -17,6 +38,9 @@
   </url>
   <url>
     <loc>/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/LED.html</loc>
   </url>
   <url>
     <loc>/reference/battery.html</loc>
@@ -35,9 +59,6 @@
   </url>
   <url>
     <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/LED.html</loc>
   </url>
   <url>
     <loc>/reference/lengths.html</loc>

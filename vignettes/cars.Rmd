@@ -1,0 +1,118 @@
+---
+title: "국내출시 차량정보"
+vignette: >
+  %\VignetteIndexEntry{cars}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+pkgdown:
+  as_is: true
+editor_options: 
+  chunk_output_type: console
+output:
+  minidown::mini_document:
+    framework: sakura
+    theme: default
+    toc: true
+    toc_float: true
+    toc_highlight: true
+    code_folding: "hide"
+    results_folding: "show"
+    tabset: true
+    code_download: true
+    math: "katex"  
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = TRUE,
+  message = FALSE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(hsData)
+source(glue::glue("{here::here()}/vignettes/_common.R"), encoding="UTF-8")
+```
+
+# 차량 데이터: `cars`
+
+국내 출시된 30종 차량 정보를 바탕으로 중량(kg)과 연비(km/L) 관계를 파악한다.
+
+```{r cars-dataset}
+knitr::kable(
+  cars, 
+  booktabs = TRUE,
+  align = c('c', 'c'),
+  caption = '실용통계  78쪽 국내출시 차량 중량과 연비'
+)
+```
+
+
+# 시각화 - 산점도
+
+국내출시 차량 중량과 연비관계를 시각화한다.
+
+```{r cars-scatter}
+# https://stackoverflow.com/questions/7549694/add-regression-line-equation-and-r2-on-graph
+lm_eqn <- function(df){
+    m <- lm(연비 ~ 중량, df);
+    eq <- substitute(italic(y) == a + b %.% italic(x)*","~~italic(r)^2~"="~r2, 
+         list(a = format(unname(coef(m)[1]), digits = 2),
+              b = format(unname(coef(m)[2]), digits = 2),
+             r2 = format(summary(m)$r.squared, digits = 3)))
+    as.character(as.expression(eq));
+}
+
+cars %>% 
+  ggplot(aes( x = 중량, y = 연비)) +
+    geom_point(size = 2) +
+    geom_smooth(method='lm', formula= y~x, se= FALSE) +
+    theme_bw() +
+    labs(title = "국내출시 차량 중량과 연비 관계",
+         subtitle = "산점도(Scatter Plot)",
+         x = "중량 (kg)",
+         y = "연비 (km/L)",
+         caption = "출처: 통계개발원 실용통계, P78") +
+  geom_text(x = 1130, y = 9, label = lm_eqn(cars), parse = TRUE, size = 5)
+```
+
+# 통계량
+
+먼저 각 변수를 살펴보자.
+
+```{r cars-skim}
+cars_skim <- cars %>% 
+  skimr::skim() %>% 
+  skimr::yank("numeric") %>% 
+  select(-n_missing, -complete_rate)
+  
+knitr::kable(
+  cars_skim, 
+  booktabs = TRUE,
+  align = c(rep('c', times=9)),
+  caption = '실용통계  78쪽 국내 출시 차량 연비와 중량'
+)
+```
+
+중량과 연비 두변수 관계를 추세선 방정식으로 파악할 수 있다.
+
+```{r cars-lm}
+cars_lm <- lm(연비 ~ 중량, data = cars) 
+
+cars_lm %>% 
+  broom::tidy() %>% 
+  knitr::kable(
+    booktabs = TRUE,
+    align = c(rep('c', times=9)),
+    caption = '국내 출시 차량 연비와 중량 회귀식'
+  )
+
+```
+
+연비와 중량간 수식으로 표현하면 다음과 같다.
+
+`r equatiomatic::extract_eq(cars_lm, wrap = TRUE, use_coefs = TRUE, coef_digits=5)` 
+
+
